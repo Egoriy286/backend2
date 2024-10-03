@@ -51,4 +51,4 @@ jobs:
             docker pull ${{ steps.meta.outputs.tags }}
             docker stop vue-students-container || true
             docker rm vue-students-container || true
-            docker run -d -p 5050:5050 --restart=always --name vue-students-container ${{ steps.meta.outputs.tags }}
+            docker run -d -p 5050:5050 --restart=always --name api-students-container ${{ steps.meta.outputs.tags }}
