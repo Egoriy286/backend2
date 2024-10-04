@@ -49,6 +49,6 @@ jobs:
           port: ${{ secrets.SERVER_SSH_PORT }}
           script: |
             docker pull ${{ steps.meta.outputs.tags }}
-            docker stop vue-students-container || true
-            docker rm vue-students-container || true
+            docker stop api-students-container || true
+            docker rm api-students-container || true
             docker run -d -p 5050:5050 --restart=always --name api-students-container ${{ steps.meta.outputs.tags }}
