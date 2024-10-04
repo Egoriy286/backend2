@@ -13,7 +13,7 @@ origins = ["*"]
 # Создаем таблицы, если они еще не созданы
 models.Base.metadata.create_all(bind=database.engine)
 
-app = FastAPI()
+app = FastAPI(openapi_prefix='/api')
 
 app.add_middleware(
     CORSMiddleware,
@@ -21,7 +21,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-)
+) 
 # Dependency для получения сессии базы данных
 def get_db():
     db = database.SessionLocal()
